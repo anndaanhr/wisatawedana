@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rumah Asisten Wedana | Cagar Budaya & Ruang Kreatif Kota Metro</title>
+  
+  <meta name="description" content="Menelusuri sejarah peresmian 1937, arsitektur kolonial Indis, dan ruang kreatif Wedana Space di Cagar Budaya Rumah Asisten Wedana, Kota Metro, Lampung.">
+  <meta name="keywords" content="Rumah Asisten Wedana Metro, Cagar Budaya Kota Metro, Wedana Space, Wisata Metro Lampung, Kolonisasi Metro 1935">
+  <meta name="author" content="Cagar Budaya Kota Metro">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rumah Asisten Wedana Kota Metro">
+  <meta property="og:description" content="Cagar budaya kolonial 1937 dan pusat kreativitas komunitas di jantung Kota Metro, Lampung.">
+  <meta property="og:image" content="assets/images/hero_facade.jpg">
+
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#portal" class="brand-stamp" id="brandStampLink">
+        <span class="brand-title">Rumah Asisten Wedana</span>
+        <span class="brand-sep">|</span>
+        <span class="brand-subtitle">Kota Metro</span>
+      </a>
+
+      <!-- Main Navigation -->
+      <nav aria-label="Navigasi Utama">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#chronicle" class="nav-link">Sejarah</a></li>
+          <li><a href="#anatomy" class="nav-link">Arsitektur</a></li>
+          <li><a href="#archive" class="nav-link">Dulu & Sekarang</a></li>
+          <li><a href="#wedana-space" class="nav-link">Wedana Space</a></li>
+          <li><a href="#trail" class="nav-link">Rute Metro</a></li>
+          <li><a href="#audio-guide" class="nav-link">Audio Tour</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button class="soundscape-hud" id="soundscapeHud" title="Putar Suara Angin & Keroncong" aria-label="Pemutar Suara Latar">
+          <div class="sound-wave-bars">
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+          </div>
+          <span class="sound-label" id="soundLabel">Suara Alam</span>
+        </button>
+
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Buka Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section" id="portal">
+      <div class="container">
+        
+        <div class="hero-title-grid">
+          <div class="hero-maincol">
+            <h1 class="hero-headline">
+              Cikal bakal tata kota modern di jantung Kota Metro.
+            </h1>
+          </div>
+          <div class="hero-subcol">
+            <p class="hero-desc">
+              Diresmikan pada 9 Juni 1937, kediaman dinas Asisten Wedana menjadi saksi awal berdirinya Kota Metro dari pembukaan kolonisasi. Kini dirawat dan dihidupkan sebagai ruang publik kreatif warga.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#chronicle" class="btn-primary" id="btnExploreChronicle">Pelajari Sejarah</a>
+              <a href="#wedana-space" class="btn-outline" id="btnExploreWedana">Aktivitas Wedana Space</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Frame -->
+        <div class="hero-visual-frame" id="heroVisualFrame">
+          <div class="hero-image-wrapper">
+            <img src="assets/images/hero_facade.jpg" alt="Fasad Rumah Asisten Wedana Kota Metro Lampung" id="heroFacadeImg" loading="eager">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         THE CHRONICLE (SEJARAH KOTA METRO)
+         ========================================================================== -->
+    <section class="section-chronicle section-padding" id="chronicle">
+      <div class="container">
+        
+        <div class="section-head-editorial">
+          <h2 class="section-heading-lg">Perjalanan Waktu</h2>
+          <p class="lead-p">
+            Kisah lahirnya Kota Metro dari rimba belantara kolonisasi hingga menjadi kota pendidikan dan cagar budaya.
+          </p>
+        </div>
+
+        <!-- Chronicle Era Tabs -->
+        <div class="chronicle-tabs-nav" id="chronicleTabsNav" role="tablist">
+          <button class="timeline-tab-btn active" data-era="1935" role="tab" id="tab1935">1935: Kolonisasi</button>
+          <button class="timeline-tab-btn" data-era="1937" role="tab" id="tab1937">1937: Peresmian</button>
+          <button class="timeline-tab-btn" data-era="1945" role="tab" id="tab1945">1945: Praja RI</button>
+          <button class="timeline-tab-btn" data-era="2021" role="tab" id="tab2021">2021: Cagar Budaya</button>
+          <button class="timeline-tab-btn" data-era="2026" role="tab" id="tab2026">Hari Ini: Wedana Space</button>
+        </div>
+
+        <!-- Chronicle Display Card -->
+        <div class="chronicle-card-display" id="chronicleCardDisplay">
+          <div class="chronicle-stamp-box">
+            <div class="chronicle-year-huge" id="chronicleYear">1935</div>
+            <h3 class="chronicle-era-title" id="chronicleEraTitle">Pembukaan Kolonisasi Sukadana</h3>
+          </div>
+          <div class="chronicle-text-content">
+            <p id="chronicleDesc">
+              Rombongan kolonis pertama diberangkatkan dari Pulau Jawa menuju pedalaman Lampung. Kawasan yang semula hutan lebat dibuka bertahap melalui sistem penomoran bedeng. Wilayah pusat pemerintahan dibentuk di Bedeng 21, yang kemudian dinamai "Meterm" atau Metro (bahasa Belanda: pusat).
+            </p>
+            <div class="chronicle-quote-box" id="chronicleQuote">
+              "Sebuah ikhtiar besar meretas rimba menjadi kota taman (garden city) dengan jaringan irigasi Way Sekampung."
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ARCHITECTURAL ANATOMY (ARSITEKTUR INDIS 1930-AN)
+         ========================================================================== -->
+    <section class="section-anatomy section-padding" id="anatomy">
+      <div class="container">
+        
+        <div class="section-head-editorial">
+          <h2 class="section-heading-lg">Kearifan Rancang Bangun</h2>
+          <p class="lead-p">
+            Klik titik pada cetak biru fasad untuk mempelajari adaptasi arsitektur kolonial Hindia Belanda terhadap iklim tropis.
+          </p>
+        </div>
+
+        <div class="blueprint-showcase-container">
+          <div class="blueprint-canvas-wrapper" id="blueprintCanvasWrapper">
+            <div class="blueprint-img-holder">
+              <img src="assets/images/blueprint_arch.jpg" alt="Denah Fasad Rumah Asisten Wedana Kota Metro" id="blueprintImage">
+              
+              <!-- Hotspots -->
+              <button class="blueprint-hotspot-pin active" style="left: 31%; top: 62%;" data-spot="pilar" id="pinPilar" title="Pilar Geometris" aria-label="Hotspot Pilar">A</button>
+              <button class="blueprint-hotspot-pin" style="left: 23%; top: 68%;" data-spot="krepyak" id="pinKrepyak" title="Jendela Krepyak" aria-label="Hotspot Jendela">B</button>
+              <button class="blueprint-hotspot-pin" style="left: 50%; top: 68%;" data-spot="pendopo" id="pinPendopo" title="Pendopo Serambi" aria-label="Hotspot Pendopo">C</button>
+              <button class="blueprint-hotspot-pin" style="left: 50%; top: 28%;" data-spot="atap" id="pinAtap" title="Atap Limasan" aria-label="Hotspot Atap">D</button>
+            </div>
+          </div>
+
+          <!-- Inspector Card -->
+          <div class="blueprint-inspector-card" id="blueprintInspectorCard">
+            <h3 class="inspector-title" id="inspectorTitle">Pilar Geometris Indis</h3>
+            <p class="inspector-body" id="inspectorBody">
+              Pilar persegi berdinding plester tebal tanpa ornamen rumit, mencerminkan estetika arsitektur modern awal abad ke-20 di Hindia Belanda. Kokoh menopang atap serambi depan.
+            </p>
+            <div class="inspector-summary-tags">
+              <span class="tag-pill" id="inspectorMaterial">Tembok Bata & Plester Kolonial</span>
+              <span class="tag-pill" id="inspectorElevation">Tinggi Pilar 3.8 Meter</span>
+              <span class="tag-pill" id="inspectorFunction">Penopang Serambi & Penahan Angin</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         THEN VS NOW (DULU & SEKARANG)
+         ========================================================================== -->
+    <section class="section-slider section-padding" id="archive">
+      <div class="container">
+        
+        <div class="section-head-editorial">
+          <h2 class="section-heading-lg">Dulu & Sekarang</h2>
+          <p class="lead-p">
+            Geser pembatas di tengah foto untuk melihat suasana peresmian 9 Juni 1937 berdampingan dengan wujud aslinya yang terawat hari ini.
+          </p>
+        </div>
+
+        <div class="slider-container-card" id="timeSliderCard">
+          <!-- Modern Image -->
+          <img src="assets/images/current_restored.jpg" alt="Rumah Asisten Wedana Metro Hari Ini" class="slider-img" id="imgNow">
+          <div class="slider-badge badge-now">Hari Ini (Wedana Space)</div>
+
+          <!-- Vintage Archive Image -->
+          <div class="slider-img-before-wrapper" id="beforeImageWrapper">
+            <img src="assets/images/archive_1880s.jpg" alt="Foto Peresmian 9 Juni 1937" class="slider-img" id="imgThen">
+            <div class="slider-badge badge-then">Peresmian 1937</div>
+          </div>
+
+          <!-- Drag Handle -->
+          <div class="slider-pill-handle" id="sliderPillHandle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         WEDANA SPACE & KALENDER AGENDA BUDAYA (LIVING HERITAGE HUB)
+         ========================================================================== -->
+    <section class="section-wedana-space section-padding" id="wedana-space">
+      <div class="container">
+        
+        <div class="section-head-editorial">
+          <h2 class="section-heading-lg">Wedana Space: Denyut Kreatif Warga</h2>
+          <p class="lead-p">
+            Bukan museum sunyi. Halaman dan pendopo Rumah Asisten Wedana dihidupkan sebagai ruang kumpul komunitas, festival tahunan, dan sentra UMKM kopi lokal.
+          </p>
+        </div>
+
+        <!-- Space Showcase Grid -->
+        <div class="wedana-space-grid">
+          
+          <!-- Visual Gallery Showcase: Real Authentic Photos of Wedana & Community Activity -->
+          <div class="space-gallery-column">
+            
+            <!-- Photo 1: Real Restored Facade (Official Pemkot Metro) -->
+            <div class="gallery-photo-card featured">
+              <div class="gallery-img-wrap">
+                <img src="assets/images/wedana_real_front.jpg" alt="Fasad Cagar Budaya Rumah Asisten Wedana Kota Metro" class="gallery-img">
+              </div>
+              <div class="gallery-info-bar">
+                <span class="gallery-source-tag">Dokumentasi Pemkot Metro</span>
+                <span class="gallery-desc">Fasad Asli Rumah Asisten Wedana di Jl. P. Diponegoro Pasca Revitalisasi</span>
+              </div>
+            </div>
+
+            <!-- Two Sub Photos Side by Side -->
+            <div class="gallery-sub-row">
+              <!-- Photo 2: 1937 Tropenmuseum Amsterdam Archive -->
+              <div class="gallery-photo-card">
+                <div class="gallery-img-wrap">
+                  <img src="assets/images/wedana_tropenmuseum_original.jpg" alt="Foto Arsip Asli 1937 Tropenmuseum Amsterdam" class="gallery-img">
+                </div>
+                <div class="gallery-info-bar">
+                  <span class="gallery-source-tag">Arsip Tropenmuseum 1937</span>
+                  <span class="gallery-desc">Woning Assistent-Wedono Metro</span>
+                </div>
+              </div>
+
+              <!-- Photo 3: Real Community Gathering / Rembug Warga -->
+              <div class="gallery-photo-card">
+                <div class="gallery-img-wrap">
+                  <img src="assets/images/wedana_activity1.jpg" alt="Aktivitas Komunitas dan Edukasi di Wedana Space" class="gallery-img">
+                </div>
+                <div class="gallery-info-bar">
+                  <span class="gallery-source-tag">Aktivitas Warga</span>
+                  <span class="gallery-desc">Ruang Temu & Dialog Komunitas</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Photo 4: Real Cultural Gathering at Wedana Space (Official Info Metro) -->
+            <div class="gallery-photo-card banner-item">
+              <div class="gallery-img-wrap">
+                <img src="assets/images/wedana_activity2.jpg" alt="Kegiatan Budaya dan Apresiasi Seni di Halaman Wedana" class="gallery-img">
+              </div>
+              <div class="gallery-info-bar">
+                <span class="gallery-source-tag">Panggung Kreatif</span>
+                <span class="gallery-desc">Apresiasi Seni, Budaya & UMKM di Halaman Rumah Asisten Wedana</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="space-agenda-block">
+            <div class="agenda-header-row">
+              <h3 style="font-size: 1.5rem;">Agenda & Aktivitas Cagar Budaya</h3>
+              <div class="agenda-filter-tabs" role="tablist">
+                <button class="agenda-tab-btn active" data-filter="all">Semua</button>
+                <button class="agenda-tab-btn" data-filter="festival">Festival</button>
+                <button class="agenda-tab-btn" data-filter="seni">Seni & Musik</button>
+                <button class="agenda-tab-btn" data-filter="umkm">Kopi & Kriya</button>
+              </div>
+            </div>
+
+            <div class="agenda-cards-list" id="agendaCardsList">
+              <!-- Event 1 -->
+              <div class="agenda-item-card" data-cat="festival">
+                <div class="agenda-date-badge">
+                  <span class="agenda-month">JUNI</span>
+                  <span class="agenda-day">09</span>
+                </div>
+                <div class="agenda-details">
+                  <div class="agenda-category-tag tag-festival">Agenda Tahunan Kota</div>
+                  <h4 class="agenda-title">Festival Metro Mengingat</h4>
+                  <p class="agenda-desc">Rangkaian HUT Kota Metro yang memadukan pameran foto arsip kolonisasi 1935, parade sepeda onthel tua, mobil antik Willys, dan bincang sejarah pusaka.</p>
+                  <div class="agenda-meta-row">
+                    <span>📍 Pendopo & Halaman Wedana</span>
+                    <span>🎟️ Akses Terbuka (Gratis)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 2 -->
+              <div class="agenda-item-card" data-cat="seni">
+                <div class="agenda-date-badge">
+                  <span class="agenda-month">SABTU</span>
+                  <span class="agenda-day">19.00</span>
+                </div>
+                <div class="agenda-details">
+                  <div class="agenda-category-tag tag-seni">Musik & Apresiasi</div>
+                  <h4 class="agenda-title">Malam Keroncong & Akustik Senja</h4>
+                  <p class="agenda-desc">Penampilan rutin seniman keroncong dan musisi akustik lokal di bawah hangatnya temaram lampu serambi pendopo Rumah Asisten Wedana.</p>
+                  <div class="agenda-meta-row">
+                    <span>📍 Serambi Depan Wedana</span>
+                    <span>☕ Terbuka untuk Umum</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 3 -->
+              <div class="agenda-item-card" data-cat="umkm">
+                <div class="agenda-date-badge">
+                  <span class="agenda-month">SETIAP</span>
+                  <span class="agenda-day">HARI</span>
+                </div>
+                <div class="agenda-details">
+                  <div class="agenda-category-tag tag-umkm">Ekonomi Kreatif</div>
+                  <h4 class="agenda-title">Pojok Seduh Robusta & UMKM Kriya</h4>
+                  <p class="agenda-desc">Stan seduhan kopi robusta asli Lampung dan karya kriya pengrajin lokal berkonsep portabel tanpa mengubah struktur fisik cagar budaya.</p>
+                  <div class="agenda-meta-row">
+                    <span>📍 Taman Samping Wedana</span>
+                    <span>🕒 08.00 – 22.00 WIB</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 4 -->
+              <div class="agenda-item-card" data-cat="seni">
+                <div class="agenda-date-badge">
+                  <span class="agenda-month">MINGGU</span>
+                  <span class="agenda-day">08.00</span>
+                </div>
+                <div class="agenda-details">
+                  <div class="agenda-category-tag tag-seni">Edukasi & Komunitas</div>
+                  <h4 class="agenda-title">Kelas Sketsa Pusaka & Walking Tour</h4>
+                  <p class="agenda-desc">Komunitas perupa dan pegiat sejarah mengajak generasi muda menggambar detail fasad kolonial sambil menelusuri kisah di balik tiap sudut ruangan.</p>
+                  <div class="agenda-meta-row">
+                    <span>📍 Titik Kumpul Pendopo</span>
+                    <span>🎨 Terbuka untuk Pemula</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HERITAGE TRAIL (RUTE KOTA PUSAKA METRO)
+         ========================================================================== -->
+    <section class="section-trail section-padding" id="trail">
+      <div class="container">
+        
+        <div class="section-head-editorial">
+          <h2 class="section-heading-lg">Rute Wisata Pusaka Kota Metro</h2>
+          <p class="lead-p">
+            Jelajahi titik-titik cagar budaya dan ruang publik bersejarah di sekeliling Rumah Asisten Wedana Metro Pusat.
+          </p>
+        </div>
+
+        <div class="trail-grid">
+          
+          <div class="trail-itinerary-list" id="trailList">
+            
+            <div class="trail-stop-card active" data-lat="-5.1147" data-lng="105.3068" id="trailStop1">
+              <div class="trail-stop-head">
+                <div class="trail-title-wrap">
+                  <span class="trail-num-badge">1</span>
+                  <span class="trail-stop-title">Rumah Asisten Wedana</span>
+                </div>
+                <span class="trail-stop-dist">0 km</span>
+              </div>
+              <p class="trail-stop-desc">
+                Jl. P. Diponegoro, Metro Pusat. Kediaman pamong praja kolonial 1937 dan pusat aktivitas kreatif warga.
+              </p>
+            </div>
+
+            <div class="trail-stop-card" data-lat="-5.1132" data-lng="105.3079" id="trailStop2">
+              <div class="trail-stop-head">
+                <div class="trail-title-wrap">
+                  <span class="trail-num-badge">2</span>
+                  <span class="trail-stop-title">Menara Air Kolonial (Ledeng)</span>
+                </div>
+                <span class="trail-stop-dist">250 m</span>
+              </div>
+              <p class="trail-stop-desc">
+                Ikon menara air bersejarah di dekat Taman Merdeka yang menyuplai air bersih bagi pemukiman kolonisasi sejak era 1930-an.
+              </p>
+            </div>
+
+            <div class="trail-stop-card" data-lat="-5.1158" data-lng="105.3045" id="trailStop3">
+              <div class="trail-stop-head">
+                <div class="trail-title-wrap">
+                  <span class="trail-num-badge">3</span>
+                  <span class="trail-stop-title">Klinik & Rumah Dokter Cagar Budaya</span>
+                </div>
+                <span class="trail-stop-dist">350 m</span>
+              </div>
+              <p class="trail-stop-desc">
+                Pusat layanan kesehatan pertama di masa awal pembukaan pemukiman kolonisasi Metro, kini dilestarikan sebagai cagar budaya.
+              </p>
+            </div>
+
+            <div class="trail-stop-card" data-lat="-5.1125" data-lng="105.3090" id="trailStop4">
+              <div class="trail-stop-head">
+                <div class="trail-title-wrap">
+                  <span class="trail-num-badge">4</span>
+                  <span class="trail-stop-title">Taman Merdeka & Samber Park</span>
+                </div>
+                <span class="trail-stop-dist">450 m</span>
+              </div>
+              <p class="trail-stop-desc">
+                Alun-alun terbuka hijau peninggalan tata kota taman (garden city) Belanda, kini menjadi pusat rekreasi warga Kota Metro.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="map-canvas-container">
+            <div id="heritageMap"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VIRTUAL AUDIO TOUR GUIDE (PANDUAN SUARA KURATOR RESMI)
+         ========================================================================== -->
+    <section class="section-manifesto section-padding" id="audio-guide">
+      <div class="container">
+        
+        <div class="section-head-editorial">
+          <h2 class="section-heading-lg">Audio Guide Kurator Sejarah</h2>
+          <p class="lead-p">
+            Dengarkan panduan suara resmi berdurasi ringkas untuk memahami nilai sejarah bangunan ini layaknya berkeliling bersama pemandu museum.
+          </p>
+        </div>
+
+        <div class="audio-tour-layout">
+          
+          <!-- Chapter Selector List -->
+          <div class="audio-chapters-col">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1.25rem;">Pilih Topik Penjelasan</h3>
+            
+            <div class="chapter-card active" data-chapter="1" id="chapterCard1">
+              <div class="chapter-num">01</div>
+              <div class="chapter-info">
+                <h4>Kelahiran Bedeng 21 & Kota Metro (1935–1937)</h4>
+                <p>Kisah ribuan kolonis meretas hutan belantara hingga berdirinya pusat pemerintahan sipil pertama.</p>
+                <span class="chapter-duration">⏱️ Durasi: ~1 menit</span>
+              </div>
+            </div>
+
+            <div class="chapter-card" data-chapter="2" id="chapterCard2">
+              <div class="chapter-num">02</div>
+              <div class="chapter-info">
+                <h4>Di Balik Serambi Meja Asisten Wedana</h4>
+                <p>Peran pamong praja pribumi menjembatani musyawarah desa dengan ketertiban tata kota Hindia Belanda.</p>
+                <span class="chapter-duration">⏱️ Durasi: ~1 menit</span>
+              </div>
+            </div>
+
+            <div class="chapter-card" data-chapter="3" id="chapterCard3">
+              <div class="chapter-num">03</div>
+              <div class="chapter-info">
+                <h4>Dari Gedung Tua Menjadi Wedana Space</h4>
+                <p>Semangat gotong royong pemuda Kota Metro merawat cagar budaya tanpa merusak keaslian bentuknya.</p>
+                <span class="chapter-duration">⏱️ Durasi: ~1 menit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Audio Player & Synchronized Transcript Box -->
+          <div class="audio-player-display-col">
+            <div class="player-box-card">
+              
+              <div class="player-header-bar">
+                <div>
+                  <span class="player-tag-pill" id="playerTag">BABAK 01 DARI 03</span>
+                  <h3 class="player-topic-title" id="playerTopicTitle">Kelahiran Bedeng 21 & Kota Metro</h3>
+                </div>
+                <div class="player-status-badge" id="playerStatusBadge">Siap Diputar</div>
+              </div>
+
+              <!-- Audio Player Controls -->
+              <div class="player-controls-container">
+                <button class="btn-play-tour" id="btnPlayTour" aria-label="Putar Narasi Audio">
+                  <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+                </button>
+
+                <div class="player-progress-wrapper">
+                  <div class="player-progress-bar">
+                    <div class="player-progress-fill" id="playerProgressFill" style="width: 0%;"></div>
+                  </div>
+                  <div class="player-time-row">
+                    <span id="playerCurrentTime">00:00</span>
+                    <span id="playerTotalTime">01:05</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Synchronized Interactive Transcript -->
+              <div class="transcript-box-container">
+                <div class="transcript-header">
+                  <span>TRANSKRIP SUARA KURATOR</span>
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Klik kalimat untuk melompat</span>
+                </div>
+                <div class="transcript-content" id="transcriptContent">
+                  <!-- Transcript paragraphs dynamically populated -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="container">
+      <div class="footer-simple-grid">
+        <div>
+          <div class="footer-brand-title">Rumah Asisten Wedana Kota Metro</div>
+          <p class="footer-brand-desc">
+            Cagar budaya peninggalan kolonial 1937 di Jalan P. Diponegoro, Kelurahan Imopuro, Kecamatan Metro Pusat, Kota Metro, Lampung. Dihidupkan sebagai ruang publik kreatif warga.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Informasi Kunjungan</div>
+          <p style="font-size: 0.9rem; color: var(--text-light-muted); line-height: 1.6;">
+            Buka Setiap Hari: 08.00 – 22.00 WIB<br>
+            Jl. P. Diponegoro, Imopuro, Metro Pusat, Kota Metro<br>
+            Tiket Masuk: Bebas Biaya (Gratis)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 Rumah Asisten Wedana Kota Metro</span>
+        <span>Pusat Sejarah & Ruang Kreatif (Wedana Space)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Main Logic -->
+  <script src="main.js"></script>
+</body>
+</html>
